@@ -1,4 +1,13 @@
 <?php
+/**
+ * CORS middleware
+ *
+ * @package     markinjapan/laravel-cors
+ * @author      Mark Prosser <markinjapan@users.noreply.github.com>
+ * @copyright   Copyright (c) Mark Prosser
+ * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
+ * @link        https://github.com/markinjapan/laravel-cors
+ */
 
 namespace MarkInJapan\LaravelCors\Middleware;
 
@@ -6,6 +15,9 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+/**
+ * CORS middleware class
+ */
 class Cors
 {
     /** @var array Allow origins */
