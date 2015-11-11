@@ -1,0 +1,19 @@
+{
+    "name": "markinjapan/laravel-cors",
+    "description": "CORS middleware for Laravel",
+    "keywords": ["cors", "laravel", "middleware"],
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Mark Prosser",
+            "email": "markinjapan@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9"
+    },
+    "autoload": {
+        "psr-4": {"MarkInJapan\\LaravelCors\\": "src/"}
+    }
+}
