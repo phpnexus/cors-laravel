@@ -41,21 +41,15 @@ class Cors
     /**
      * Class constructor
      */
-    public function __construct()
+    public function __construct(array $config)
     {
-        global $app;
-
-        // Load CORS configuration file
-        $app->configure('cors');
-
-        // Read CORS configuration into class
-        $config = config('cors');
-        $this->allow_origins     = (array)$config['allow_origins'];
-        $this->allow_headers     = (array)$config['allow_headers'];
-        $this->allow_credentials = (bool)$config['allow_credentials'];
-        $this->allow_methods     = (array)$config['allow_methods'];
-        $this->expose_headers    = (array)$config['expose_headers'];
-        $this->max_age           = (int)$config['max_age'];
+        // Set class properties from config (with basic typecasting)
+        $this->allow_origins     = (array) $config['allow_origins'];
+        $this->allow_headers     = (array) $config['allow_headers'];
+        $this->allow_credentials = (bool)  $config['allow_credentials'];
+        $this->allow_methods     = (array) $config['allow_methods'];
+        $this->expose_headers    = (array) $config['expose_headers'];
+        $this->max_age           = (int)   $config['max_age'];
     }
 
     /**
