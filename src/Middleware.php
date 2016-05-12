@@ -75,17 +75,17 @@ class Middleware
             ->setMethod($request->method());
 
         // Set Origin if header exists
-        if ($request->hasHeader('Origin')) {
+        if ($request->headers->has('Origin')) {
             $corsRequest->setOrigin($request->header('Origin'));
         }
 
         // Set access control request method if header exists
-        if ($request->hasHeader('Access-Control-Request-Method')) {
+        if ($request->headers->has('Access-Control-Request-Method')) {
             $corsRequest->setAccessControlRequestMethod($request->header('Access-Control-Request-Method'));
         }
 
         // Set access control request headers if header exists
-        if ($request->hasHeader('Access-Control-Request-Headers')) {
+        if ($request->headers->has('Access-Control-Request-Headers')) {
             $corsRequest->setAccessControlRequestHeaders($request->headers->get('Access-Control-Request-Headers', [], false));
         }
 
