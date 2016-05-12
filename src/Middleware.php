@@ -13,6 +13,7 @@ namespace PhpNexus\CorsLaravel;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 use PhpNexus\Cors\CorsRequest;
 use PhpNexus\Cors\CorsService;
 
@@ -96,14 +97,14 @@ class Middleware
      * Apply parameters from CORS response to Illuminate Response object
      *
      * @param array $corsResponse
-     * @param Illuminate\Http\Response $response
+     * @param Symfony\Component\HttpFoundation\Response $response
      * @return Illuminate\Http\Response
      */
-    protected function applyResponseParams(array $corsResponse, Response $response)
+    protected function applyResponseParams(array $corsResponse, SymfonyResponse $response)
     {
         // Set Access-Control-Allow-Credentials header if appropriate
         if (isset($corsResponse['access-control-allow-credentials'])) {
-            $response->header(
+            $response->headers->set(
                 'Access-Control-Allow-Credentials',
                 $corsResponse['access-control-allow-credentials']
             );
@@ -111,7 +112,7 @@ class Middleware
 
         // Set Access-Control-Allow-Headers header if appropriate
         if (isset($corsResponse['access-control-allow-headers'])) {
-            $response->header(
+            $response->headers->set(
                 'Access-Control-Allow-Headers',
                 $corsResponse['access-control-allow-headers']
             );
@@ -119,7 +120,7 @@ class Middleware
 
         // Set Access-Control-Allow-Methods header if appropriate
         if (isset($corsResponse['access-control-allow-methods'])) {
-            $response->header(
+            $response->headers->set(
                 'Access-Control-Allow-Methods',
                 $corsResponse['access-control-allow-methods']
             );
@@ -127,7 +128,7 @@ class Middleware
 
         // Set Access-Control-Allow-Origin header if appropriate
         if (isset($corsResponse['access-control-allow-origin'])) {
-            $response->header(
+            $response->headers->set(
                 'Access-Control-Allow-Origin',
                 $corsResponse['access-control-allow-origin']
             );
@@ -135,7 +136,7 @@ class Middleware
 
         // Set Access-Control-Expose-Headers header if appropriate
         if (isset($corsResponse['access-control-expose-headers'])) {
-            $response->header(
+            $response->headers->set(
                 'Access-Control-Expose-Headers',
                 $corsResponse['access-control-expose-headers']
             );
@@ -143,7 +144,7 @@ class Middleware
 
         // Set Max-Age header if appropriate
         if (isset($corsResponse['max-age'])) {
-            $response->header(
+            $response->headers->set(
                 'Max-Age',
                 $corsResponse['max-age']
             );
