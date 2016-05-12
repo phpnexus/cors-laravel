@@ -1,6 +1,6 @@
 <?php
 /**
- * CORS middleware service provider
+ * CORS service provider
  *
  * @package     phpnexus/cors-laravel
  * @copyright   Copyright (c) 2016 Mark Prosser
@@ -11,6 +11,7 @@
 namespace PhpNexus\CorsLaravel;
 
 use Illuminate\Support\ServiceProvider;
+use PhpNexus\Cors\CorsService;
 use PhpNexus\CorsLaravel\Middleware as CorsMiddleware;
 
 /**
@@ -25,12 +26,18 @@ class CorsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(CorsMiddleware::class, function ($app) {
+        // CORS service
+        $this->app->singleton(CorsService::class, function ($app) {
             // Load cors configuration
             $app->configure('cors');
 
-            // Create new CORS middleware, with config
-            return new CorsMiddleware($app['config']['cors']);
+            return new CorsService($app['config']['cors']);
+        });
+
+        // CORS middleware
+        $this->app->singleton(CorsMiddleware::class, function ($app) {
+            // Create new CorsMiddleware, with CorsService
+            return new CorsMiddleware($app->make(CorsService::class));
         });
     }
 }
