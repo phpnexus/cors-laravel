@@ -3,8 +3,7 @@
  * CORS middleware service provider
  *
  * @package     phpnexus/cors-laravel
- * @author      Mark Prosser <markinjapan@users.noreply.github.com>
- * @copyright   Copyright (c) Mark Prosser
+ * @copyright   Copyright (c) 2016 Mark Prosser
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link        https://github.com/phpnexus/cors-laravel
  */
