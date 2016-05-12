@@ -12,8 +12,7 @@
     "license": "Apache-2.0",
     "authors": [
         {
-            "name": "Mark Prosser",
-            "email": "markinjapan@users.noreply.github.com"
+            "name": "Mark Prosser"
         }
     ],
     "require": {
