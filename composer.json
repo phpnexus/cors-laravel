@@ -1,7 +1,13 @@
 {
-    "name": "markinjapan/laravel-cors",
-    "description": "CORS middleware for Laravel",
-    "keywords": ["cors", "laravel", "middleware"],
+    "name": "phpnexus/cors-laravel",
+    "description": "Provides a lightweight CORS middleware for Laravel/Lumen.",
+    "keywords": [
+        "cors",
+        "middleware",
+        "laravel",
+        "lumen",
+        "illuminate"
+    ],
     "type": "library",
     "license": "Apache-2.0",
     "authors": [
@@ -14,6 +20,8 @@
         "php": ">=5.5.9"
     },
     "autoload": {
-        "psr-4": {"MarkInJapan\\LaravelCors\\": "src/"}
+        "psr-4": {
+            "PhpNexus\\CorsLaravel\\": "src/"
+        }
     }
 }
